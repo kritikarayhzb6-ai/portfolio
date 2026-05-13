@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kritika — Digital Marketing Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">K<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="scrollToSection('contact')">Hire Me</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+      <li><a href="#skills" onclick="closeMobileMenu()">Skills</a></li>
+      <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+      <li><a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a></li>
+      <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+      <div class="grid-lines"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag reveal">✦ Digital Marketing Professional</div>
+      <h1 class="hero-title reveal">
+        Hi, I'm <br><em>Kritika</em>
+      </h1>
+      <p class="hero-sub reveal">
+        I craft data-driven marketing strategies that grow brands,<br>
+        drive traffic, and convert audiences into loyal customers.
+      </p>
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-num" data-target="50">0</span><span>+</span>
+          <p>Campaigns Launched</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="5">0</span><span>+</span>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="30">0</span><span>+</span>
+          <p>Happy Clients</p>
+        </div>
+      </div>
+      <div class="hero-buttons reveal">
+        <button class="btn-primary" onclick="scrollToSection('portfolio')">View My Work</button>
+        <button class="btn-ghost" onclick="scrollToSection('contact')">Let's Talk →</button>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <div class="avatar-initials">KR</div>
+        </div>
+        <div class="ring ring1"></div>
+        <div class="ring ring2"></div>
+        <div class="ring ring3"></div>
+      </div>
+      <div class="floating-badge badge1">
+        <span class="badge-icon">📈</span>
+        <div><strong>SEO Expert</strong><small>Top 3 Rankings</small></div>
+      </div>
+      <div class="floating-badge badge2">
+        <span class="badge-icon">🎯</span>
+        <div><strong>Google Ads</strong><small>Certified</small></div>
+      </div>
+      <div class="floating-badge badge3">
+        <span class="badge-icon">✉️</span>
+        <div><strong>Email / WhatsApp</strong><small>High Open Rates</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Turning <em>Data</em> into <br>Business Growth</h2>
+          <p>I'm Kritika, a results-obsessed digital marketing professional with expertise spanning the full marketing funnel — from organic search visibility to paid acquisition and direct engagement channels.</p>
+          <p>My approach blends creativity with analytical thinking. Every campaign I run is backed by data, refined through testing, and built to deliver measurable ROI for my clients.</p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon">🔍</div>
+              <div>
+                <strong>Search-First Strategy</strong>
+                <p>SEO & PPC working in harmony for maximum SERP dominance</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">💬</div>
+              <div>
+                <strong>Direct Channel Mastery</strong>
+                <p>Email & WhatsApp campaigns with industry-beating open rates</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">📊</div>
+              <div>
+                <strong>Analytics-Driven</strong>
+                <p>Every decision backed by data and performance insights</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image-wrap">
+          <div class="about-card">
+            <div class="about-card-header">
+              <div class="about-initials">KR</div>
+              <div>
+                <strong>Kritika</strong>
+                <span>Digital Marketing Pro</span>
+              </div>
+            </div>
+            <div class="about-card-stats">
+              <div class="card-stat"><strong>SEO</strong><span>On-Page & Off-Page</span></div>
+              <div class="card-stat"><strong>PPC</strong><span>Google & Meta Ads</span></div>
+              <div class="card-stat"><strong>Email</strong><span>Automation & Drip</span></div>
+              <div class="card-stat"><strong>WhatsApp</strong><span>Broadcast & API</span></div>
+            </div>
+            <div class="about-card-tag">✦ Available for Freelance</div>
+          </div>
+          <div class="about-deco"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Expertise</span>
+        <h2 class="section-title">My Core <em>Skills</em></h2>
+        <p class="section-desc">A full-stack digital marketing toolkit built for modern growth.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card" data-delay="0">
+          <div class="skill-icon">🔍</div>
+          <h3>SEO</h3>
+          <p>On-page, off-page, technical SEO, keyword research, link building, and content strategy to rank higher on Google.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+          <span class="skill-pct">92%</span>
+        </div>
+        <div class="skill-card" data-delay="100">
+          <div class="skill-icon">💰</div>
+          <h3>Pay-Per-Click (PPC)</h3>
+          <p>Budget-efficient paid search campaigns with high CTR, low CPC, and maximum ROAS across competitive niches.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          <span class="skill-pct">88%</span>
+        </div>
+        <div class="skill-card" data-delay="200">
+          <div class="skill-icon">📣</div>
+          <h3>Google Ads</h3>
+          <p>Search, Display, Shopping, and YouTube campaigns. Full-funnel strategy from awareness to conversion.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          <span class="skill-pct">90%</span>
+        </div>
+        <div class="skill-card" data-delay="300">
+          <div class="skill-icon">✉️</div>
+          <h3>Email Marketing</h3>
+          <p>Segmented campaigns, drip automation, A/B testing, and performance analytics for high open and click rates.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          <span class="skill-pct">85%</span>
+        </div>
+        <div class="skill-card" data-delay="400">
+          <div class="skill-icon">💬</div>
+          <h3>WhatsApp Marketing</h3>
+          <p>Broadcast campaigns, WhatsApp Business API integration, chatbot flows, and direct engagement strategies.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="87"></div></div>
+          <span class="skill-pct">87%</span>
+        </div>
+        <div class="skill-card" data-delay="500">
+          <div class="skill-icon">📱</div>
+          <h3>Social Media Marketing</h3>
+          <p>Organic growth and paid amplification across Instagram, Facebook, LinkedIn, and more.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="84"></div></div>
+          <span class="skill-pct">84%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">What I Offer</span>
+        <h2 class="section-title">Services Designed <br>for <em>Real Results</em></h2>
+      </div>
+      <div class="services-list">
+        <div class="service-item">
+          <div class="service-num">01</div>
+          <div class="service-content">
+            <h3>SEO Strategy & Execution</h3>
+            <p>Complete SEO audits, keyword mapping, content optimization, technical fixes, and monthly reporting to grow your organic traffic sustainably.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">02</div>
+          <div class="service-content">
+            <h3>Google Ads & PPC Management</h3>
+            <p>End-to-end campaign setup, bid optimization, ad copywriting, landing page recommendations, and ROAS improvement for your paid budget.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">03</div>
+          <div class="service-content">
+            <h3>Email Marketing Automation</h3>
+            <p>Welcome sequences, nurture drips, re-engagement flows, promotional blasts — all crafted to drive opens, clicks, and revenue.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">04</div>
+          <div class="service-content">
+            <h3>WhatsApp Marketing Campaigns</h3>
+            <p>Broadcast strategies, WhatsApp Business API setup, interactive message templates, and performance tracking.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-item">
+          <div class="service-num">05</div>
+          <div class="service-content">
+            <h3>Full-Funnel Digital Strategy</h3>
+            <p>A cohesive marketing plan connecting SEO, paid ads, email, and social to build a consistent customer journey from discovery to purchase.</p>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio section" id="portfolio">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Featured <em>Projects</em></h2>
+        <p class="section-desc">A selection of campaigns and strategies that delivered measurable impact.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <div class="portfolio-tag">SEO</div>
+          <div class="portfolio-icon">📈</div>
+          <h3>E-commerce Traffic Growth</h3>
+          <p>Executed a complete SEO overhaul for a fashion e-commerce store — resulting in 3x organic traffic within 6 months.</p>
+          <div class="portfolio-metrics">
+            <span>+320% Traffic</span>
+            <span>Top 3 Rankings</span>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-tag">Google Ads</div>
+          <div class="portfolio-icon">🎯</div>
+          <h3>Lead Generation Campaign</h3>
+          <p>Managed Google Search & Display campaigns for a B2B SaaS brand, cutting cost-per-lead by 45% while doubling conversion volume.</p>
+          <div class="portfolio-metrics">
+            <span>-45% CPL</span>
+            <span>2x Conversions</span>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-tag">Email Marketing</div>
+          <div class="portfolio-icon">✉️</div>
+          <h3>Drip Campaign Automation</h3>
+          <p>Built a 12-step email nurture sequence for a real estate company that achieved 38% open rates and 12% click-through rates.</p>
+          <div class="portfolio-metrics">
+            <span>38% Open Rate</span>
+            <span>12% CTR</span>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-tag">WhatsApp</div>
+          <div class="portfolio-icon">💬</div>
+          <h3>WhatsApp Broadcast Strategy</h3>
+          <p>Designed and deployed a WhatsApp marketing strategy for a D2C brand that drove 22% repeat purchase rate from existing customers.</p>
+          <div class="portfolio-metrics">
+            <span>22% Repeat Rate</span>
+            <span>5x ROI</span>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-tag">PPC + SEO</div>
+          <div class="portfolio-icon">🚀</div>
+          <h3>Full-Funnel for EdTech</h3>
+          <p>Combined SEO content strategy with targeted Google Ads to grow a coaching institute's enrollments by 80% year-over-year.</p>
+          <div class="portfolio-metrics">
+            <span>+80% Enrollments</span>
+            <span>3.8x ROAS</span>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-tag">Social + Email</div>
+          <div class="portfolio-icon">📣</div>
+          <h3>Product Launch Campaign</h3>
+          <p>Orchestrated a multi-channel product launch across email, WhatsApp, and Instagram for an FMCG brand — reaching 50K users in 48 hours.</p>
+          <div class="portfolio-metrics">
+            <span>50K Reach</span>
+            <span>48hr Launch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">What Clients <em>Say</em></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Kritika transformed our online presence. Our organic leads tripled in just 5 months. Her SEO strategy was methodical, data-driven, and incredibly effective."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RA</div>
+            <div>
+              <strong>Rahul A.</strong>
+              <span>CEO, StyleKart</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card featured-testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"Working with Kritika on our Google Ads was a game-changer. She cut our ad spend waste by 40% and still grew our conversions. Absolutely recommend her!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">PM</div>
+            <div>
+              <strong>Priya M.</strong>
+              <span>Marketing Head, TechSaaS Co.</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Her email and WhatsApp campaigns brought back dormant customers like magic. The ROI on those campaigns was unlike anything we'd seen before."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">VK</div>
+            <div>
+              <strong>Vikram K.</strong>
+              <span>Founder, DirectBuy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-tag">Get In Touch</span>
+          <h2 class="section-title">Let's Build <br><em>Something Great</em></h2>
+          <p>Whether you need a full digital marketing strategy or help with a specific channel — I'd love to hear about your goals.</p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:kritika@email.com">
+              <span class="contact-link-icon">✉️</span>
+              <div><strong>Email</strong><small>kritika@email.com</small></div>
+            </a>
+            <a class="contact-link" href="https://wa.me/911234567890" target="_blank">
+              <span class="contact-link-icon">💬</span>
+              <div><strong>WhatsApp</strong><small>+91 12345 67890</small></div>
+            </a>
+            <a class="contact-link" href="https://linkedin.com" target="_blank">
+              <span class="contact-link-icon">🔗</span>
+              <div><strong>LinkedIn</strong><small>linkedin.com/in/kritika</small></div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="e.g. Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label>Service Needed</label>
+              <select>
+                <option value="">Select a service…</option>
+                <option>SEO Strategy</option>
+                <option>Google Ads / PPC</option>
+                <option>Email Marketing</option>
+                <option>WhatsApp Marketing</option>
+                <option>Full-Funnel Strategy</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="4" placeholder="Tell me about your project…" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary full-width">Send Message ✦</button>
+          </form>
+          <div class="form-success" id="form-success" style="display:none">
+            <div class="success-icon">✓</div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Kritika<span>.</span></div>
+        <p>Digital Marketing Professional — SEO · PPC · Google Ads · Email · WhatsApp</p>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Kritika. All rights reserved. Crafted with ♥</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
