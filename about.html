@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Digital Marketing Drive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050810;
+      --surface: #0c1120;
+      --card: #111827;
+      --accent: #f0a500;
+      --accent2: #ff5f40;
+      --text: #f0f4ff;
+      --muted: #8a9ac0;
+      --border: rgba(255,255,255,0.07);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 1.2rem 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(5,8,16,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.2rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #000;
+      padding: .55rem 1.4rem; border-radius: 50px;
+      text-decoration: none; font-weight: 700; font-size: .85rem;
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; place-items: center;
+      padding: 10rem 6% 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(240,165,0,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 20% 70%, rgba(255,95,64,0.08) 0%, transparent 55%);
+    }
+    .grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+      max-width: 1200px; width: 100%;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(240,165,0,.12); border: 1px solid rgba(240,165,0,.3);
+      color: var(--accent); padding: .4rem 1rem; border-radius: 50px;
+      font-size: .8rem; font-weight: 600; letter-spacing: .05em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .hero-tag::before { content: '◆'; font-size: .6rem; }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .hero p {
+      color: var(--muted); font-size: 1.05rem; line-height: 1.8;
+      max-width: 500px; margin-bottom: 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: #000;
+      padding: .8rem 2rem; border-radius: 50px;
+      text-decoration: none; font-weight: 700; font-size: .95rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(240,165,0,.35); }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--text);
+      padding: .8rem 2rem; border-radius: 50px;
+      text-decoration: none; font-weight: 500; font-size: .95rem;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.05); }
+
+    .hero-visual {
+      position: relative; display: flex; flex-direction: column; gap: 1rem;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.4rem 1.8rem;
+      display: flex; align-items: center; gap: 1.2rem;
+      animation: floatCard 4s ease-in-out infinite;
+    }
+    .stat-card:nth-child(2) { animation-delay: 1.5s; margin-left: 2rem; }
+    .stat-card:nth-child(3) { animation-delay: 3s; }
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .stat-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: grid; place-items: center; font-size: 1.3rem;
+      background: rgba(240,165,0,.12);
+      flex-shrink: 0;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem; font-weight: 800; color: var(--accent);
+    }
+    .stat-label { color: var(--muted); font-size: .85rem; margin-top: .1rem; }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 6rem 6%; }
+    .section-label {
+      display: inline-block;
+      color: var(--accent); font-size: .8rem;
+      font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800; line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    h2 span { color: var(--accent); }
+    .section-intro {
+      color: var(--muted); font-size: 1.05rem; line-height: 1.8;
+      max-width: 600px;
+    }
+
+    /* ── STORY ── */
+    .story {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .story-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .story-visual {
+      position: relative;
+    }
+    .story-img-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .story-img-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(240,165,0,.15) 0%, rgba(255,95,64,.1) 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1rem;
+    }
+    .big-icon { font-size: 5rem; }
+    .story-badge {
+      position: absolute; bottom: -1rem; right: -1rem;
+      background: var(--accent); color: #000;
+      border-radius: 14px; padding: 1rem 1.4rem;
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 1.5rem; text-align: center;
+      box-shadow: 0 8px 30px rgba(240,165,0,.4);
+    }
+    .story-badge small { display: block; font-size: .7rem; font-weight: 600; margin-top: .2rem; }
+
+    .story-text p {
+      color: var(--muted); line-height: 1.9; margin-bottom: 1rem; font-size: 1rem;
+    }
+    .story-list {
+      margin-top: 2rem; display: flex; flex-direction: column; gap: .8rem;
+    }
+    .story-list li {
+      display: flex; align-items: center; gap: .8rem;
+      color: var(--text); font-size: .95rem; list-style: none;
+    }
+    .check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(240,165,0,.15); border: 1px solid rgba(240,165,0,.4);
+      display: grid; place-items: center; font-size: .7rem; flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    /* ── VALUES ── */
+    .values { max-width: 1200px; margin: 0 auto; }
+    .values-header { margin-bottom: 3.5rem; }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .value-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px; padding: 2rem;
+      transition: border-color .3s, transform .3s;
+      position: relative; overflow: hidden;
+    }
+    .value-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0; transition: opacity .3s;
+    }
+    .value-card:hover { border-color: rgba(240,165,0,.3); transform: translateY(-4px); }
+    .value-card:hover::before { opacity: 1; }
+    .value-icon {
+      font-size: 2rem; margin-bottom: 1.2rem;
+      display: block;
+    }
+    .value-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem; font-weight: 700; margin-bottom: .7rem;
+    }
+    .value-card p { color: var(--muted); font-size: .9rem; line-height: 1.7; }
+
+    /* ── TEAM ── */
+    .team-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .team-inner { max-width: 1200px; margin: 0 auto; }
+    .team-header { margin-bottom: 3.5rem; }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    }
+    .member-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+      transition: transform .3s, border-color .3s;
+    }
+    .member-card:hover { transform: translateY(-6px); border-color: rgba(240,165,0,.2); }
+    .member-avatar {
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      background: linear-gradient(135deg, rgba(240,165,0,.1), rgba(255,95,64,.08));
+    }
+    .member-info { padding: 1.5rem; }
+    .member-info h3 {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: .3rem;
+    }
+    .member-role { color: var(--accent); font-size: .85rem; font-weight: 600; margin-bottom: .8rem; }
+    .member-info p { color: var(--muted); font-size: .88rem; line-height: 1.6; }
+    .member-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+    .tag {
+      background: rgba(240,165,0,.1); color: var(--accent);
+      border: 1px solid rgba(240,165,0,.2);
+      padding: .25rem .7rem; border-radius: 50px;
+      font-size: .75rem; font-weight: 600;
+    }
+
+    /* ── MILESTONES ── */
+    .milestones { max-width: 1200px; margin: 0 auto; }
+    .milestones-header { margin-bottom: 3.5rem; }
+    .timeline {
+      position: relative; padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+    .timeline-item {
+      position: relative; padding-left: 3rem; margin-bottom: 3rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -2.45rem; top: .3rem;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(240,165,0,.2);
+    }
+    .timeline-year {
+      font-family: 'Syne', sans-serif; font-size: .8rem; font-weight: 700;
+      color: var(--accent); letter-spacing: .1em; margin-bottom: .4rem;
+    }
+    .timeline-item h3 {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem;
+    }
+    .timeline-item p { color: var(--muted); font-size: .92rem; line-height: 1.7; max-width: 600px; }
+
+    /* ── LOCATION ── */
+    .location-section {
+      background: var(--surface); border-top: 1px solid var(--border);
+    }
+    .location-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .location-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2.5rem;
+    }
+    .location-card h3 {
+      font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 1.5rem;
+    }
+    .info-row {
+      display: flex; gap: 1rem; margin-bottom: 1.2rem; align-items: flex-start;
+    }
+    .info-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(240,165,0,.12); display: grid; place-items: center;
+      flex-shrink: 0; font-size: 1.1rem;
+    }
+    .info-label { font-size: .78rem; color: var(--muted); margin-bottom: .2rem; }
+    .info-value { font-size: .95rem; color: var(--text); font-weight: 500; }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 7rem 6%;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(240,165,0,.1) 0%, transparent 70%);
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .cta-section h2 { margin-bottom: 1.2rem; }
+    .cta-section p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.5rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      color: var(--muted); font-size: .85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      animation: fadeUp .8s ease forwards;
+    }
+    .fade-up.d1 { animation-delay: .1s; }
+    .fade-up.d2 { animation-delay: .25s; }
+    .fade-up.d3 { animation-delay: .4s; }
+    .fade-up.d4 { animation-delay: .55s; }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: none; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner, .story-grid, .location-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .values-grid, .team-grid { grid-template-columns: 1fr 1fr; }
+      .hero-visual { display: none; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .values-grid, .team-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="logo">Digital<span>Marketing</span>Drive</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#process">Process</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/#testimonials">Results</a></li>
+    </ul>
+    <a href="/#contact" class="nav-cta">Get Started</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="grid-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag fade-up d1">About Us</div>
+        <h1 class="fade-up d2">The Team Behind Your <em>Digital Growth</em></h1>
+        <p class="fade-up d3">We're not an agency that sends reports and disappears. We're growth partners — relentlessly focused on your numbers, your market, and your future.</p>
+        <div class="hero-btns fade-up d4">
+          <a href="/#contact" class="btn-primary">Work With Us</a>
+          <a href="#story" class="btn-outline">Our Story</a>
+        </div>
+      </div>
+      <div class="hero-visual fade-up d3">
+        <div class="stat-card">
+          <div class="stat-icon">🚀</div>
+          <div>
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Campaigns Launched</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🎯</div>
+          <div>
+            <div class="stat-num">98%</div>
+            <div class="stat-label">Client Retention Rate</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📈</div>
+          <div>
+            <div class="stat-num">12X</div>
+            <div class="stat-label">Average ROI Delivered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="story-grid">
+      <div class="story-visual">
+        <div class="story-img-wrap">
+          <div class="story-img-inner">
+            <div class="big-icon">📡</div>
+            <div style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--muted);">Hazaribagh, Jharkhand</div>
+          </div>
+        </div>
+        <div class="story-badge">
+          2+ Yrs<small>in the Market</small>
+        </div>
+      </div>
+      <div class="story-text">
+        <span class="section-label">Our Story</span>
+        <h2>Born in Hazaribagh, <span>Built for Scale</span></h2>
+        <p>Digital Marketing Drive started with a simple belief: every business — no matter where it's located — deserves world-class digital marketing. We saw businesses in Hazaribagh and across Jharkhand struggling to find honest, results-oriented marketing partners.</p>
+        <p>So we built one. From a small desk to a full-service agency, we've helped hundreds of brands dominate search, run profitable ad campaigns, and grow their social presence from zero to momentum.</p>
+        <p>Today, we serve clients across India and beyond — but our roots, our hustle, and our commitment to transparent results stay the same.</p>
+        <ul class="story-list">
+          <li><span class="check">✓</span> Google Partner & Meta Blueprint Certified</li>
+          <li><span class="check">✓</span> No fluff — only ROI-focused strategies</li>
+          <li><span class="check">✓</span> Full transparency, always your own accounts</li>
+          <li><span class="check">✓</span> Dedicated strategist, not a rotating intern</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section>
+    <div class="values">
+      <div class="values-header">
+        <span class="section-label">What We Stand For</span>
+        <h2>Our Core <span>Values</span></h2>
+        <p class="section-intro">Everything we do flows from these principles. They're not a wall decoration — they shape every campaign, every call, every report.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <span class="value-icon">📊</span>
+          <h3>Data Before Opinion</h3>
+          <p>Every decision is backed by numbers, A/B testing, and real analytics. We let the data lead so your budget is never wasted on guesswork.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🔍</span>
+          <h3>Radical Transparency</h3>
+          <p>You see everything — weekly dashboards, real numbers, direct access to your ad accounts. Zero black boxes, zero hidden fees.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🤝</span>
+          <h3>Partnership, Not Vendor</h3>
+          <p>We treat your business like our own. Your wins are our wins. Your growth milestones are what we celebrate internally.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">⚡</span>
+          <h3>Speed & Agility</h3>
+          <p>Markets move fast. We move faster. Campaigns are optimized in real-time, and strategy pivots happen before problems become losses.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🧠</span>
+          <h3>Continuous Learning</h3>
+          <p>Every platform algorithm changes. Every market shifts. We obsessively stay ahead — so your strategy never goes stale.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🏆</span>
+          <h3>Results, Period</h3>
+          <p>Impressions are nice. Leads and revenue are what matter. We don't pitch vanity metrics — we deliver business outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section">
+    <div class="team-inner">
+      <div class="team-header">
+        <span class="section-label">The People</span>
+        <h2>Meet the <span>Team</span></h2>
+        <p class="section-intro">A lean team of specialists — not a bloated agency with layers of middlemen. Your campaigns are handled by people who actually know what they're doing.</p>
+      </div>
+      <div class="team-grid">
+        <div class="member-card">
+          <div class="member-avatar">👨‍💼</div>
+          <div class="member-info">
+            <h3>Founder & Strategy Lead</h3>
+            <div class="member-role">Growth Strategy · Business Development</div>
+            <p>Oversees all client strategy and ensures every campaign ties back to real business goals. The person who started it all.</p>
+            <div class="member-tags">
+              <span class="tag">SEO</span>
+              <span class="tag">Strategy</span>
+              <span class="tag">Google Ads</span>
+            </div>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-avatar">👩‍💻</div>
+          <div class="member-info">
+            <h3>Performance Marketing Lead</h3>
+            <div class="member-role">Google Ads · Meta Ads · Analytics</div>
+            <p>Manages all paid campaigns. Obsessed with cost-per-lead, ROAS, and squeezing maximum value out of every rupee spent.</p>
+            <div class="member-tags">
+              <span class="tag">Meta Ads</span>
+              <span class="tag">PPC</span>
+              <span class="tag">Analytics</span>
+            </div>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-avatar">🧑‍🎨</div>
+          <div class="member-info">
+            <h3>Content & Social Lead</h3>
+            <div class="member-role">Content Strategy · Social Media · Copywriting</div>
+            <p>Turns brand stories into content that actually converts. Manages social channels and crafts creatives that stop the scroll.</p>
+            <div class="member-tags">
+              <span class="tag">Content</span>
+              <span class="tag">Social</span>
+              <span class="tag">Copywriting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MILESTONES -->
+  <section>
+    <div class="milestones">
+      <div class="milestones-header">
+        <span class="section-label">The Journey</span>
+        <h2>How We <span>Got Here</span></h2>
+        <p class="section-intro">Every milestone shaped how we work and what we stand for today.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">FOUNDED</div>
+          <h3>Digital Marketing Drive is Born</h3>
+          <p>Started in Hazaribagh with a mission to give local and regional businesses access to the same caliber of digital marketing that large cities take for granted.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">GROWTH</div>
+          <h3>First 50 Clients & Google Certification</h3>
+          <p>Reached our first major milestone of 50 active clients. Achieved Google Partner status and Meta Blueprint certification, formalizing our expertise.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">EXPANSION</div>
+          <h3>Scaling Beyond Jharkhand</h3>
+          <p>Expanded our client base across India — serving businesses in Maharashtra, Delhi NCR, Karnataka, and clients targeting international markets.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">TODAY</div>
+          <h3>500+ Campaigns, 98% Retention</h3>
+          <p>Operating at full capacity with 500+ campaigns launched, a 98% client retention rate, and an average 12X ROI across our portfolio. The journey continues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location-section">
+    <div class="location-inner">
+      <div>
+        <span class="section-label">Find Us</span>
+        <h2>Based in <span>Hazaribagh</span></h2>
+        <p class="section-intro" style="margin-bottom:2rem;">We work with clients across India and internationally — but we're proudly rooted in Hazaribagh, Jharkhand. Remote-first by design, personal by choice.</p>
+        <a href="/#contact" class="btn-primary">Schedule a Free Call</a>
+      </div>
+      <div class="location-card">
+        <h3>📍 Get In Touch</h3>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Location</div>
+            <div class="info-value">Hazaribagh, Jharkhand, India</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📧</div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:hello@digitalmarketingdrive.com" style="color:var(--accent);">hello@digitalmarketingdrive.com</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-label">Phone</div>
+            <div class="info-value"><a href="tel:+91-9999999999" style="color:var(--accent);">+91 99999 99999</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-label">Response Time</div>
+            <div class="info-value">Within 24 hours, always</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <span class="section-label">Ready?</span>
+      <h2>Let's <span>Drive</span> Your Growth</h2>
+      <p>Book a free 30-minute strategy call. No obligations, no fluff — just a clear picture of how we can grow your business digitally.</p>
+      <div class="cta-btns">
+        <a href="/#contact" class="btn-primary">Book Free Strategy Call</a>
+        <a href="/#services" class="btn-outline">View Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Digital Marketing Drive · Hazaribagh, Jharkhand</span>
+    <span>Built to grow brands — <a href="/#contact">Start today</a></span>
+  </footer>
+
+</body>
+</html>
