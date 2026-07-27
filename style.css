@@ -24,6 +24,10 @@
     font-weight: 300;
     line-height: 1.7;
   }
+  .hero-title{
+    
+    margin-top: 100px;
+  }
 
   /* NOISE OVERLAY */
   body::before {
@@ -78,8 +82,8 @@
 
   .nav-cta {
     background: transparent;
-    border: 1px solid var(--gold-dim);
-    color: var(--gold);
+    border: 1px solid blueviolet;
+    color: white;
     padding: 0.55rem 1.4rem;
     font-family: 'DM Sans', sans-serif;
     font-size: 0.78rem;
@@ -91,8 +95,9 @@
   }
 
   .nav-cta:hover {
-    background: var(--gold);
-    color: #090909;
+    background: red;
+    color:black;
+  
   }
 
   /* HERO */
